@@ -1,0 +1,14 @@
+Delimiter $$
+create procedure empgrade(IN e  int)
+Begin 
+Declare Temp Decimal(6,2);
+select esal into Temp from emp where eno=e ;
+IF Temp <= 1200 Then
+update emp set grade='Three'  where eno=e;
+elseif ( Temp > 1200 AND  Temp <=6500) Then
+update emp set grade='Two'  where eno=e;
+elseif ( Temp >6500 ) Then
+update emp set grade='One'  where eno=e;
+END IF; 
+End$$
+Delimiter ;

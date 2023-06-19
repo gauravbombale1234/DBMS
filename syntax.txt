@@ -1,0 +1,97 @@
+sudo apt -get install mysql-server    	-> for install mysql in ubuntu
+
+sudo mysql -u root 
+
+show databases;		-> list of databases
+
+create database database_name;   	-> for creating database
+
+use database_name; 		-> for select
+
+show tables;		-> list of all tables
+
+Desc table_name; 	->structure of table
+
+### DDL = create, alter , truncate ,drop , rename
+### DML = insert , delete , update
+### DQL = select
+
+
+#####SELECT Statement
+SELECT * FROM table_name;
+
+###create table
+create table table_name(c_Name1 Datatype(size));
+
+#### Alter Table
+Alter table table_name add c_name D_type;
+Alter table table_name drop c_name ;
+Alter table table_name add modify D_type;
+
+####Truncate	->delete only data
+truncate table T_Name
+
+###Drop ->Data & Structure are deleted
+Drop table T_Name;
+
+#####ORDER BY Keyword  ->sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+SELECT * FROM Customers
+ORDER BY Country;
+
+
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+
+#####INSERT INTO Statement
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+
+
+#####UPDATE Statement
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+
+#####DELETE Statement
+DELETE FROM table_name WHERE condition;
+
+
+#####MIN() and MAX() Functions
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+
+
+#####COUNT(), AVG() and SUM() Functions
+
+#1.COUNT() function returns the number of rows that matches a specified criterion.
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+
+#2.The AVG() function returns the average value of a numeric column. 
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+
+#3.The SUM() function returns the total sum of a numeric column. 
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+
+
+#####The SQL BETWEEN Operator
+#The BETWEEN operator selects values within a given range. 
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+
+
+
+
+
+

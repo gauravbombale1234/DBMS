@@ -1,0 +1,14 @@
+Delimiter $$
+create function display(credit decimal(10,2)) Returns varchar(12) Deterministic
+Begin
+Declare cl varchar(12);
+if credit > 50000 Then
+set cl='Platinum';
+elseif (credit <= 50000 and credit >=30000) Then
+set cl='Gold';
+elseif credit < 30000  Then
+set cl='Silver';
+end if;
+Return (cl);
+end $$
+Delimiter ;

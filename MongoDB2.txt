@@ -1,0 +1,71 @@
+#Create a Database
+use myNewDB
+db.myNewCollection1.insertOne( { x: 1 } )
+
+#MongoDB CRUD Operations
+CRUD operations create, read, update, and delete documents.
+
+#############Insert Documents
+#Insert a Single Document
+db.collection.insertOne()
+
+db.inventory.insertOne(
+   { item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5, uom: "cm" } })
+
+#To retrieve the document that you just inserted, query the collection:
+
+db.inventory.find( { item: "canvas" } )
+
+#Insert Multiple Documents   	->db.collection.insertMany()
+db.inventory.insertMany([
+   { item: "journal", qty: 25, tags: ["blank", "red"], size: { h: 14, w: 21, uom: "cm" } },
+   { item: "mat", qty: 85, tags: ["gray"], size: { h: 27.9, w: 35.5, uom: "cm" } },
+   { item: "mousepad", qty: 25, tags: ["gel", "blue"], size: { h: 19, w: 22.85, uom: "cm" } }
+])
+
+#To retrieve the inserted documents, query the collection:
+db.inventory.find( {} )
+
+
+#########Read operation
+db.movies.find().pretty()
+
+
+##########Update Documents
+#Update a Single Document	->db.collection.updateOne()
+db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+
+
+#update many
+db.inventory.updateMany(
+   { "qty": { $lt: 50 } },
+   {
+     $set: { "size.uom": "in", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+
+
+############Delete Documents
+db.collection.deleteMany()
+db.collection.deleteOne()
+
+#Delete All Documents
+db.inventory.deleteMany({})
+
+#The following example deletes the first document where status is "D":
+db.inventory.deleteOne( { status: "D" } )
+
+
+
+
+
+
+
+
